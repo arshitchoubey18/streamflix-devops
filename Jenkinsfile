@@ -1,48 +1,41 @@
 pipeline {
-    agent any
+  agent any
 
-    environment {
-        IMAGE_NAME = "arshitchoubey18/streamflix"
+  stages {
+    stage('Checkout') {
+      steps { checkout scm }
     }
 
-    stages {
-        stage('Checkout') {
-            steps {
-                    git branch: 'main', url: 'https://github.com/arshitchoubey18/streamflix-devops.git'
-            }
+    stage('Install') {
+      steps {
+        docker.image('node:20-alpine').inside {
+          sh 'node -v && npm -v'
+          sh 'npm ci'
         }
-
-        stage('Install') {
-            steps {
-                sh 'npm install'
-            }
-        }
-
-        stage('Build') {
-            steps {
-                sh 'npm run build'
-            }
-        }
-
-        stage('Docker Build') {
-            steps {
-                sh 'docker build -t $IMAGE_NAME .'
-            }
-        }
-
-        stage('Docker Push') {
-            steps {
-                sh 'docker push $IMAGE_NAME'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                sh '''
-                docker rm -f streamflix || true
-                docker run -d -p 8080:80 --name streamflix $IMAGE_NAME
-                '''
-            }
-        }
+      }
     }
+
+    stage('Build') {
+      steps {
+        docker.image('node:20-alpine').inside {
+          sh 'npm run build'
+        }
+      }
+    }
+
+    stage('Docker Build') {
+      steps {
+        sh 'docker build -t arshitchoubey18/streamflix:latest .'
+      }
+    }
+
+    stage('Docker Push') {
+      steps {
+        withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+          sh 'echo $PASS | docker login -u $USER --password-stdin'
+          sh 'docker push arshitchoubey18/streamflix:latest'
+        }
+      }
+    }
+  }
 }
