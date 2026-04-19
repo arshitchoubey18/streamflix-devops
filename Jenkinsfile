@@ -4,7 +4,7 @@ pipeline {
     environment {
         IMAGE_NAME = "arshitchoubey18/streamflix"
         CONTAINER_NAME = "streamflix-app"
-        EC2_HOST = "YOUR_EC2_PUBLIC_IP"
+        EC2_HOST = "54.208.228.151"
         EC2_USER = "ubuntu"
     }
 
