@@ -14,4 +14,4 @@ StreamFlix is a StreamFlix-style streaming frontend application used as a DevOps
 - Add Jenkins CI/CD pipeline
 - Integrate SonarQube
 - Deploy with Nginx
-- Push image to Docker Hub
+- Push image to Docker Hub# test
