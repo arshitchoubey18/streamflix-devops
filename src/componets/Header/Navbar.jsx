@@ -72,7 +72,7 @@ function Navbar(props) {
                   <img
                     className="h-6 cursor-pointer w-18"
                     src="https://fontmeme.com/permalink/250902/1c1670dd6284f8d01001e1c74b52aae3.png"
-                    alt="NETFLIX"
+                    alt="STREAMFLIX"
                   />
                 </div>
                 <div className="hidden md:block">
@@ -166,7 +166,7 @@ function Navbar(props) {
                             ? `${User.photoURL}`
                             : `https://www.citypng.com/public/uploads/preview/profile-user-round-red-icon-symbol-download-png-11639594337tco5j3n0ix.png`
                         }
-                        alt="NETFLIX"
+                        alt="STREAMFLIX"
                       />
                     </Link>
                     <ul class="absolute hidden text-white pt-1 -ml-32 group-hover:block transition ease-in-out delay-150">

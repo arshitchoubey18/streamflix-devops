@@ -94,7 +94,7 @@ function SignUp() {
                   Create a new account
                 </h1>
                 <h1 className="text-white text-2xl p-3 text-center border-2 border-red-700 rounded-sm">
-                  Not Real Netflix
+                  Demo StreamFlix
                 </h1>
                 <form
                   onSubmit={handleSubmit}
