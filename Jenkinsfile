@@ -3,22 +3,28 @@ pipeline {
 
   stages {
     stage('Checkout') {
-      steps { checkout scm }
+      steps {
+        checkout scm
+      }
     }
 
     stage('Install') {
       steps {
-        docker.image('node:20-alpine').inside {
-          sh 'node -v && npm -v'
-          sh 'npm ci'
+        script {
+          docker.image('node:20-alpine').inside {
+            sh 'node -v'
+            sh 'npm ci'
+          }
         }
       }
     }
 
     stage('Build') {
       steps {
-        docker.image('node:20-alpine').inside {
-          sh 'npm run build'
+        script {
+          docker.image('node:20-alpine').inside {
+            sh 'npm run build'
+          }
         }
       }
     }
