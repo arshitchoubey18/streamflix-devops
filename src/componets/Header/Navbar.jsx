@@ -71,7 +71,7 @@ function Navbar(props) {
                 <div className="flex-shrink-0">
                   <img
                     className="h-6 cursor-pointer w-18"
-                    src="https://fontmeme.com/permalink/250902/1c1670dd6284f8d01001e1c74b52aae3.png"
+                    src="https://fontmeme.com/permalink/260420/dc350e71.png"
                     alt="STREAMFLIX"
                   />
                 </div>
