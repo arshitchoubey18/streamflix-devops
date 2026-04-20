@@ -1,203 +1,85 @@
 # StreamFlix DevOps Project
 
-StreamFlix is a Netflix-style frontend application used to demonstrate a complete DevOps CI/CD pipeline.
-
-This repository allows anyone to clone the project, build a Docker image, and deploy it on AWS EC2.
-
----
-
-## 🚀 What This Project Includes
-
-- React (Vite) frontend
-- Dockerized application (multi-stage build)
-- Nginx for production serving
-- Jenkins CI/CD pipeline
-- SonarQube integration
-- Docker Hub image publishing
-- Automated AWS EC2 deployment
+A **Netflix-inspired frontend application** built with **React + Vite**, containerized using **Docker**, and deployed on **AWS EC2** using **Nginx**.  
+This project demonstrates a complete **DevOps workflow** including CI/CD, containerization, and cloud deployment.
 
 ---
 
-## 🧰 Tech Stack
+## 🚀 Tech Stack
 
-- React + Vite
-- Docker + Nginx
-- Jenkins
-- SonarQube
-- AWS EC2
-- GitHub Webhooks
+- React + Vite  
+- Docker (Multi-stage build)  
+- Nginx  
+- Jenkins (CI/CD)  
+- SonarQube  
+- AWS EC2  
+- Docker Hub  
 
 ---
 
-# 🧑‍💻 How to Clone and Run Locally
+## ⚙️ Key Highlights
 
-## Step 1: Clone Repo
+- Dockerized frontend application for production
+- Implemented CI/CD pipeline using Jenkins
+- Integrated SonarQube for code quality checks
+- Automated Docker image build and deployment
+- Deployed application on AWS EC2
+
+---
+
+## 🖥️ Deployment (EC2 - Direct Build)
+
+## Build directly on EC2 (No Docker Hub required)**
 
 ```bash
+# Update system & install dependencies
+sudo apt update
+sudo apt install -y docker.io git
+
+# Enable Docker
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo usermod -aG docker ubuntu
+newgrp docker
+
+# Clone repository
 git clone https://github.com/arshitchoubey18/streamflix-devops.git
 cd streamflix-devops
+
+# Build Docker image
+docker build -t streamflix .
+
+# Run container
+docker rm -f streamflix-app || true
+docker run -d --name streamflix-app -p 80:80 --restart unless-stopped streamflix
 ````
 
-## Step 2: Install Dependencies
-
-```bash
-npm install
-```
-
-## Step 3: Run App
-
-```bash
-npm run dev
-```
-
-Open:
+Access the application:
 
 ```
-http://localhost:5173
+http://your-ec2-public-ip
 ```
 
 ---
 
-# 🐳 Run Using Docker (Recommended)
+## 📸 Screenshots
 
-## Build Image
-
-```bash
-docker build -t streamflix .
-```
-
-## Run Container
-
-```bash
-docker run -d -p 8080:80 --name streamflix-app streamflix
-```
-
-Open:
-
-```
-http://localhost:8080
-```
+![App](screenshots/app-on-ec2.png)
+![Docker](screenshots/docker-ps.png)
+![Jenkins](screenshots/jenkins-pipeline.png)
+![SonarQube](screenshots/sonarqube-report.png)
 
 ---
 
-# ☁️ Deploy This Project on AWS EC2 (Step-by-Step)
+## 🔄 CI/CD Flow
 
-This is the most important section.
-
----
-
-## Step 1: Launch EC2 Instance
-
-* OS: Ubuntu
-* Instance type: t2.micro
-* Open ports:
-
-  * 22 (SSH)
-  * 80 (HTTP)
+GitHub → Jenkins → SonarQube → Docker Build → EC2 Deployment
 
 ---
 
-## Step 2: Connect to EC2
+## 👨‍💻 Author
 
-```bash
-chmod 400 your-key.pem
-ssh -i your-key.pem ubuntu@YOUR_EC2_PUBLIC_IP
-```
+**Arshit Choubey**
+DevOps Engineer
 
----
-
-## Step 3: Install Docker on EC2
-
-```bash
-sudo apt update
-sudo apt install -y docker.io
-sudo systemctl start docker
-sudo systemctl enable docker
-sudo usermod -aG docker ubuntu
-```
-
-Reconnect:
-
-```bash
-exit
-ssh -i your-key.pem ubuntu@YOUR_EC2_PUBLIC_IP
-```
-
----
-
-## Step 4: Pull Docker Image
-
-```bash
-docker pull arshitchoubey18/streamflix:latest
-```
-
----
-
-## Step 5: Run Application
-
-```bash
-docker rm -f streamflix-app || true
-docker run -d -p 80:80 --name streamflix-app arshitchoubey18/streamflix:latest
-```
-
----
-
-## Step 6: Open in Browser
-
-```
-http://YOUR_EC2_PUBLIC_IP
-```
-
-🎉 Your app is now live on AWS!
-
----
-
-# 🔁 CI/CD (Optional - Advanced)
-
-This project also supports full CI/CD:
-
-```
-GitHub → Jenkins → SonarQube → Docker → Docker Hub → EC2
-```
-
-Every push triggers:
-
-* Build
-* Code scan
-* Docker image creation
-* Auto deployment to EC2
-
----
-
-# 🧪 Useful Commands
-
-## Check running containers
-
-```bash
-docker ps
-```
-
-## Stop container
-
-```bash
-docker rm -f streamflix-app
-```
-
-## View logs
-
-```bash
-docker logs streamflix-app
-```
-
----
-
-# 📌 Notes
-
-* Ensure EC2 security group allows **port 80**
-* Docker image must be public on Docker Hub
-* Use your own Docker Hub username if you fork this repo
-
----
-
-
-
+GitHub: [https://github.com/arshitchoubey18](https://github.com/arshitchoubey18)
