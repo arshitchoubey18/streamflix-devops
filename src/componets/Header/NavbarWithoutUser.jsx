@@ -28,7 +28,7 @@ function NavbarWithoutUser() {
         <div className="w-9/12 md:w-11/12">
           <img
             className="h-8 sm:h-10 sm:w-18 ml-8 cursor-pointer"
-            src="https://fontmeme.com/permalink/250902/1c1670dd6284f8d01001e1c74b52aae3.png"
+            src="https://fontmeme.com/permalink/260420/dc350e71.png"
             alt="STREAMFLIX"
           />
         </div>
