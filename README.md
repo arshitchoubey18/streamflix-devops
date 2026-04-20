@@ -1,14 +1,3 @@
-Got it — you want a **practical, copy-paste friendly README** so anyone can **clone your repo and deploy it on AWS EC2 without confusion**.
-
-Below is a **clean, deployment-focused README** (not too long, but complete).
-
----
-
-# ✅ 📄 FINAL README (COPY + DEPLOY FOCUSED)
-
-Use this:
-
-````md
 # StreamFlix DevOps Project
 
 StreamFlix is a Netflix-style frontend application used to demonstrate a complete DevOps CI/CD pipeline.
@@ -210,40 +199,5 @@ docker logs streamflix-app
 
 ---
 
-# 📄 License
 
-MIT
 
-```
-
----
-
-# 🎯 Why this README is correct
-
-This version:
-- ✔ Beginner friendly  
-- ✔ Step-by-step EC2 deployment  
-- ✔ No confusion / no unnecessary theory  
-- ✔ Copy → run → live app  
-- ✔ Matches your actual pipeline  
-
----
-
-# 🔥 Optional Upgrade (if you want)
-
-If you want next-level polish:
-
-I can give you:
-- README with screenshots
-- architecture diagram
-- badges (build passing, docker pulls)
-- domain + HTTPS instructions
-
-Just say:
-
-👉 **“Make README premium”**
-
----
-
-This README is already **good enough for recruiters + GitHub visitors** 👍
-```
