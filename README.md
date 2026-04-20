@@ -64,10 +64,23 @@ http://your-ec2-public-ip
 
 ## 📸 Screenshots
 
-![App](screenshots/app-on-ec2.png)
-![Docker](screenshots/docker-ps.png)
-![Jenkins](screenshots/jenkins-pipeline.png)
-![SonarQube](screenshots/sonarqube-report.png)
+## Application Running on EC2
+<img width="1366" height="646" alt="image" src="https://github.com/user-attachments/assets/fa3b0a05-5390-4f22-a118-933c349b539c" />
+
+## Docker Container Running
+<img width="1366" height="646" alt="image" src="https://github.com/user-attachments/assets/62b5e23f-0338-4b22-a0f5-640550cabf2d" />
+
+## EC2 Instance Running
+<img width="1366" height="564" alt="image" src="https://github.com/user-attachments/assets/5521dee7-3668-4eb4-9f5d-cf28e96fa1a7" />
+
+## Security Group (Ports Open)
+<img width="1366" height="564" alt="image" src="https://github.com/user-attachments/assets/add233e6-5cdb-4282-aaff-fd8bbfbc6193" />
+
+## Jenkins Pipeline Success
+
+
+
+
 
 ---
 
