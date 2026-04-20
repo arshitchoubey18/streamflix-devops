@@ -36,13 +36,13 @@ function Play() {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.state.From === "MyList") {
+    if (location?.state?.From === "MyList"){
       setIsFromMyList(true);
     }
-    if (location.state.From === "LikedMovies") {
+    if (location?.state?.From === "LikedMovies") {
       setIsFromLikedMovies(true);
     }
-    if (location.state.From === "WatchedMovies") {
+    if (location?.state?.From === "WatchedMovies") {
       setIsFromWatchedMovies(true);
     }
 
@@ -58,7 +58,7 @@ function Play() {
         }
       });
 
-    if (urlId === "") {
+    if (!urlId) {
       axios
         .get(`/tv/${id}/videos?api_key=${API_KEY}&language=en-US`)
         .then((responce) => {
@@ -105,7 +105,7 @@ function Play() {
             width="100%"
             style={{ height: "inherit" }}
             src={`//www.youtube.com/embed/${urlId.key}?modestbranding=1&autoplay=1`}
-            frameborder="0"
+            frameBorder="0"
             allow="autoplay fullscreen"
             allowFullScreen
           ></iframe>
@@ -359,7 +359,7 @@ function Play() {
                   }`
                 }
                 className="w-40 rounded-sm lg:w-[45rem] ml-4 lg:ml-0"
-                alt=<img src="https://i.ytimg.com/vi/Mwf--eGs05U/maxresdefault.jpg" />
+                alt={movieDetails.title || "movie poster"}
               />
             </div>
           </section>
@@ -376,7 +376,7 @@ function Play() {
                     {similarMovies &&
                       similarMovies.map((similarMovie) => {
                         return (
-                          <div class="max-w-sm shadow mb-4">
+                          <div className="max-w-sm shadow mb-4">
                             <img
                               src={
                                 similarMovie.backdrop_path
