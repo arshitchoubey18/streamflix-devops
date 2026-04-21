@@ -130,21 +130,6 @@ docker logs streamflix-app
 curl http://localhost
 ```
 
----
-
-## 📸 Screenshots to Add (Important for Resume)
-
-Add these images in your README:
-
-1. ✅ EC2 instance running (AWS Console)
-2. ✅ Docker container running (`docker ps`)
-3. ✅ Application in browser (Public IP)
-4. ✅ Docker build success output
-5. ✅ GitHub repo structure
-6. ✅ (Optional) Jenkins pipeline success
-
----
-
 ## 🔥 Key Highlights (For Recruiters)
 
 * End-to-end **cloud deployment without local dependency**
