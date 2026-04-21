@@ -1,98 +1,175 @@
-# StreamFlix DevOps Project
+# 🚀 StreamFlix DevOps Project
 
-A **Netflix-inspired frontend application** built with **React + Vite**, containerized using **Docker**, and deployed on **AWS EC2** using **Nginx**.  
-This project demonstrates a complete **DevOps workflow** including CI/CD, containerization, and cloud deployment.
-
----
-
-## 🚀 Tech Stack
-
-- React + Vite  
-- Docker (Multi-stage build)  
-- Nginx  
-- Jenkins (CI/CD)  
-- SonarQube  
-- AWS EC2  
-- Docker Hub  
+A production-ready **Netflix-style streaming frontend** deployed using a complete **DevOps pipeline approach** with Docker, Nginx, and AWS EC2.
 
 ---
 
-## ⚙️ Key Highlights
+## 📌 Project Overview
 
-- Dockerized frontend application for production
-- Implemented CI/CD pipeline using Jenkins
-- Integrated SonarQube for code quality checks
-- Automated Docker image build and deployment
-- Deployed application on AWS EC2
+This project demonstrates how a modern frontend application can be:
+
+* Containerized using **Docker**
+* Served via **Nginx**
+* Built and deployed directly on **AWS EC2 (Cloud-only, no local setup)**
+* Structured for CI/CD integration (Jenkins ready)
 
 ---
 
-## 🖥️ Deployment (EC2 - Direct Build)
+## 🛠️ Tech Stack
 
-## Build directly on EC2 (No Docker Hub required)**
+* **Frontend**: React + Vite
+* **Containerization**: Docker
+* **Web Server**: Nginx
+* **Cloud**: AWS EC2
+* **CI/CD (Optional)**: Jenkins
+
+---
+
+## ⚙️ Prerequisites
+
+Before deployment, ensure:
+
+* AWS account
+* EC2 instance (Ubuntu recommended)
+* Security Group allows:
+
+  * Port **22** (SSH)
+  * Port **80** (HTTP)
+
+---
+
+## ☁️ Deployment on AWS EC2 (Cloud Only)
+
+### Step 1: Connect to EC2
 
 ```bash
-# Update system & install dependencies
+ssh -i your-key.pem ubuntu@YOUR_EC2_PUBLIC_IP
+```
+
+---
+
+### Step 2: Install Dependencies
+
+```bash
 sudo apt update
 sudo apt install -y docker.io git
 
-# Enable Docker
 sudo systemctl enable docker
 sudo systemctl start docker
+
 sudo usermod -aG docker ubuntu
 newgrp docker
+```
 
-# Clone repository
+---
+
+### Step 3: Clone Repository
+
+```bash
 git clone https://github.com/arshitchoubey18/streamflix-devops.git
 cd streamflix-devops
+```
 
-# Build Docker image
+---
+
+### Step 4: Build Docker Image
+
+```bash
 docker build -t streamflix .
+```
 
-# Run container
+---
+
+### Step 5: Run Application
+
+```bash
 docker rm -f streamflix-app || true
-docker run -d --name streamflix-app -p 80:80 --restart unless-stopped streamflix
-````
 
-Access the application:
-
-```
-http://your-ec2-public-ip
+docker run -d \
+  --name streamflix-app \
+  -p 80:80 \
+  --restart unless-stopped \
+  streamflix
 ```
 
 ---
 
-## 📸 Screenshots
+### Step 6: Access Application
 
-## Application Running on EC2
-<img width="1366" height="646" alt="image" src="https://github.com/user-attachments/assets/fa3b0a05-5390-4f22-a118-933c349b539c" />
+Open in browser:
 
-## Docker Container Running
-<img width="1366" height="646" alt="image" src="https://github.com/user-attachments/assets/62b5e23f-0338-4b22-a0f5-640550cabf2d" />
-
-## EC2 Instance Running
-<img width="1366" height="564" alt="image" src="https://github.com/user-attachments/assets/5521dee7-3668-4eb4-9f5d-cf28e96fa1a7" />
-
-## Security Group (Ports Open)
-<img width="1366" height="564" alt="image" src="https://github.com/user-attachments/assets/add233e6-5cdb-4282-aaff-fd8bbfbc6193" />
-
-## Jenkins Pipeline Success
-
-
-
-
+```
+http://YOUR_EC2_PUBLIC_IP
+```
 
 ---
 
-## 🔄 CI/CD Flow
+## 🔄 Update Deployment (After Code Changes)
 
-GitHub → Jenkins → SonarQube → Docker Build → EC2 Deployment
+```bash
+cd streamflix-devops
+git pull origin main
+
+docker build -t streamflix .
+docker rm -f streamflix-app || true
+
+docker run -d \
+  --name streamflix-app \
+  -p 80:80 \
+  --restart unless-stopped \
+  streamflix
+```
+
+---
+
+## 🧪 Verification Commands
+
+```bash
+docker ps
+docker logs streamflix-app
+curl http://localhost
+```
+
+---
+
+## 📸 Screenshots to Add (Important for Resume)
+
+Add these images in your README:
+
+1. ✅ EC2 instance running (AWS Console)
+2. ✅ Docker container running (`docker ps`)
+3. ✅ Application in browser (Public IP)
+4. ✅ Docker build success output
+5. ✅ GitHub repo structure
+6. ✅ (Optional) Jenkins pipeline success
+
+---
+
+## 🔥 Key Highlights (For Recruiters)
+
+* End-to-end **cloud deployment without local dependency**
+* Production-ready **Docker + Nginx setup**
+* Scalable architecture for CI/CD pipelines
+* Hands-on experience with **AWS EC2 deployment**
+
+---
+
+## 📌 Future Enhancements
+
+* CI/CD automation using Jenkins
+* Docker Hub integration
+* HTTPS setup using Nginx + SSL
+* Kubernetes deployment
 
 ---
 
 ## 👨‍💻 Author
 
 **Arshit Choubey**
-DevOps Engineer
+ → DevOps Engineer
 
-GitHub: [https://github.com/arshitchoubey18](https://github.com/arshitchoubey18)
+---
+
+## 📜 License
+
+MIT License © 2026 Arshit Choubey
