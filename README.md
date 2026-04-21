@@ -130,7 +130,7 @@ docker logs streamflix-app
 curl http://localhost
 ```
 
-## 🔥 Key Highlights (For Recruiters)
+## 🔥 Key Highlights 
 
 * End-to-end **cloud deployment without local dependency**
 * Production-ready **Docker + Nginx setup**
